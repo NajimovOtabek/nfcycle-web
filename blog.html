@@ -4,306 +4,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NFCycle — Korea's First NFC Refillable Anti-Grey Haircare | Pre-Order Now</title>
+  <title>NFCycle Blog | Eco-Wellness & Sustainability Insights</title>
   <meta name="description"
-    content="Personalized, zero-waste, NFC-enabled refillable shampoo bottles that fight early greying and hair loss. Pre-order your founding bottle today.">
-
+    content="Discover insights on sustainable living, hair health, and mindful wellness from the NFCycle team.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;600;700&display=swap"
     rel="stylesheet">
-
-  <!-- FontAwesome + AOS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero full-height" style="background: linear-gradient(135deg, #A8B5A2 0%, #C6E4C7 100%);">
+  <!-- Header -->
+  <header class="scrolled">
     <div class="container">
-      <nav class="nav-fixed">
-        <a href="#" class="logo">
-          <h2 style="color:white; margin:0;">NFcycle</h2>
+      <nav>
+        <a href="index.html" class="logo">
+          <img src="assets/images/logo.png" alt="NFCycle Logo" style="height: 60px;">
         </a>
         <div class="nav-links" id="navLinks">
-          <a href="#problem">Problem</a>
-          <a href="#solution">Solution</a>
-          <a href="#products">Products</a>
-          <a href="#process">Process</a>
-          <a href="#team">Team</a>
-          <a href="#preorder" class="btn">Pre-Order Now</a>
+          <a href="index.html#problem">The Problem</a>
+          <a href="index.html#solution">Our Solution</a>
+          <a href="index.html#products">Products</a>
+          <a href="index.html#process">Process</a>
+          <a href="index.html#team">Team</a>
+          <a href="blog.html" class="active">Blog</a>
+          <a href="index.html#preorder" class="btn btn-sm">Pre-Order</a>
         </div>
-        <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+        <div class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
       </nav>
-
-      <div class="hero-content text-center" data-aos="fade-up">
-        <h1 class="display" style="color:white;">NFcycle</h1>
-        <p class="slogan" style="font-size:2rem; color:white; margin:20px 0 40px;">
-          Eco-Friendly Today, Grey-Free Tomorrow.
-        </p>
-        <p class="lead" style="max-width:800px; margin:auto; color:#fff; opacity:0.95; font-size:1.3rem;">
-          Korea’s first personalized, NFC-powered, zero-waste refillable haircare system that fights early greying and
-          hair loss — in partnership with Juno Cosmetics.
-        </p>
-        <a href="#preorder" class="btn btn-lg mt-40" style="background:#2E7D32; padding:16px 40px; font-size:1.3rem;">
-          Pre-Order Your Bottle →
-        </a>
-      </div>
     </div>
-  </section>
+  </header>
 
-  <!-- THE PROBLEM -->
-  <section id="problem" class="section-padding bg-light">
+
+
+  <!-- Blog Posts -->
+  <section class="section-padding" style="background-color: var(--color-light-gray);">
     <div class="container">
-      <h2 class="text-center mb-60" data-aos="fade-up">We Face Three Modern Problems</h2>
-      <div class="grid-3">
-        <div class="card text-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="icon-circle mb-20"><i class="fas fa-recycle fa-3x" style="color:#2E7D32;"></i></div>
-          <h3>Plastic Waste Explosion</h3>
-          <p>Over 400 million tons of plastic are produced yearly — most end up in landfills.</p>
-        </div>
-        <div class="card text-center" data-aos="fade-up" data-aos-delay="200">
-          <div class="icon-circle mb-20"><i class="fas fa-bolt fa-3x" style="color:#E65100;"></i></div>
-          <h3>Stress = Faster Greying</h3>
-          <p>Chronic stress increases oxidative damage, turning hair grey as early as your 20s.</p>
-        </div>
-        <div class="card text-center" data-aos="fade-up" data-aos-delay="300">
-          <div class="icon-circle mb-20"><i class="fas fa-tint fa-3x" style="color:#1976D2;"></i></div>
-          <h3>Dehydration Hurts Hair</h3>
-          <p>Most people don’t drink enough water — directly affecting scalp health and pigmentation.</p>
-        </div>
-      </div>
-      <p class="text-center mt-40 lead" data-aos="fade-up">We solve all three with one intelligent bottle.</p>
-    </div>
-  </section>
+      <div class="blog-grid">
 
-  <!-- OUR SOLUTION -->
-  <section id="solution" class="section-padding" style="background:#B2D8B2;">
-    <div class="container grid-2 items-center">
-      <div data-aos="fade-right">
-        <h2>One Bottle. Three Revolutions.</h2>
-        <ul class="check-list large">
-          <li>100% recycled & endlessly refillable with your name engraved</li>
-          <li>Built-in NFC tag — tap your phone to request a refill</li>
-          <li>Premium Korean anti-grey & hair-growth formulas</li>
-          <li>Closed-loop system: we collect, sterilize, refill, redeliver</li>
-          <li>Free digital wellness guide to reduce stress & slow greying</li>
-        </ul>
-        <a href="#products" class="btn mt-20">Discover the Formulas →</a>
-      </div>
-      <div data-aos="fade-left">
-        <img src="https://via.placeholder.com/600x700/B2D8B2/ffffff?text=NFcycle+Bottle+Mockup" alt="NFcycle Bottle"
-          style="border-radius:20px; box-shadow:0 20px 40px rgba(0,0,0,0.15);">
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCTS -->
-  <section id="products" class="section-padding bg-white">
-    <div class="container">
-      <h2 class="text-center mb-60" data-aos="fade-up">Choose Your Formula</h2>
-
-      <!-- ReGen -->
-      <div class="product-card" style="background:linear-gradient(135deg, #A8B5A2, #C6E4C7);" data-aos="fade-up">
-        <div class="grid-2 items-center">
-          <div>
-            <h3>ReGen — Stimulate & Awaken</h3>
-            <p class="lead">For scalp stimulation, hair growth & grey-hair prevention</p>
-            <ul class="check-list">
-              <li>Rosemary oil (clinically proven regrowth)</li>
-              <li>Peppermint oil — circulation boost</li>
-              <li>Biotin + B12 complex</li>
-              <li>Fresh herbal-mint scent</li>
-            </ul>
-            <p><strong>Founding Price: ₩79,000</strong> <del>₩119,000</del></p>
-            <a href="#preorder" class="btn" onclick="document.getElementById('product').value='ReGen'">Pre-Order ReGen →</a>
+        <!-- Post 1: Hydration & Hair Health -->
+        <article class="blog-card" data-aos="fade-up">
+          <div class="blog-card-image">
+            <img src="assets/images/blog/hydration-science.png" alt="The Science of Hydration and Hair Health">
           </div>
-          <img src="https://via.placeholder.com/500x650/A8B5A2/ffffff?text=ReGen+Sage+Green" alt="ReGen">
-        </div>
-      </div>
-
-      <!-- Vital Bloom -->
-      <div class="product-card popular" style="background:linear-gradient(135deg, #C6E4C7, #D8E4D0);" data-aos="fade-up">
-        <div class="popular-badge">Most Popular</div>
-        <div class="grid-2 items-center">
-          <div>
-            <h3>Vital Bloom — Strength & Balance</h3>
-            <p class="lead">Korean red ginseng + green tea for stronger, balanced hair</p>
-            <ul class="check-list">
-              <li>Korean red ginseng extract</li>
-              <li>Green tea antioxidants + bamboo water</li>
-              <li>Reduces shedding, balances oils</li>
-              <li>Earthy spa scent</li>
-            </ul>
-            <p><strong>Founding Price: ₩89,000</strong> <del>₩129,000</del> + Free bamboo comb</p>
-            <a href="#preorder" class="btn" onclick="document.getElementById('product').value='Vital Bloom'">Pre-Order Vital Bloom →</a>
+          <div class="blog-card-content">
+            <div class="blog-meta">
+              <span class="blog-category">Science</span>
+              <span class="blog-date">November 2025</span>
+            </div>
+            <h2>The Science of Hydration & Hair Health</h2>
+            <p>Discover the biological connection between proper hydration and preventing premature greying. Learn how
+              cellular water balance affects melanin production in your hair follicles.</p>
+            <a href="pages/blog/hydration-hair.html" class="btn">Read Article →</a>
           </div>
-          <img src="https://via.placeholder.com/500x650/C6E4C7/ffffff?text=Vital+Bloom+Jade" alt="Vital Bloom">
-        </div>
-      </div>
+        </article>
 
-      <!-- Aura Restore -->
-      <div class="product-card" style="background:linear-gradient(135deg, #D8C8E3, #E8DAEF);" data-aos="fade-up">
-        <div class="grid-2 items-center">
-          <div>
-            <h3>Aura Restore — Repair & Calm</h3>
-            <p class="lead">Lavender + blueberry for sensitive scalps & pigment protection</p>
-            <ul class="check-list">
-              <li>Lavender oil + blueberry antioxidants</li>
-              <li>Black sesame (traditional grey-prevention)</li>
-              <li>Calms irritation, hydrates deeply</li>
-              <li>Elegant floral-berry scent</li>
-            </ul>
-            <p><strong>Founding Price: ₩85,000</strong> <del>₩125,000</del> + Free scalp massager</p>
-            <a href="#preorder" class="btn" onclick="document.getElementById('product').value='Aura Restore'">Pre-Order Aura Restore →</a>
+        <!-- Post 2: Ocean Plastic -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="blog-card-image">
+            <img src="assets/images/blog/ocean-plastic.png" alt="Breaking the Cycle: The Truth About Ocean Plastic">
           </div>
-          <img src="https://via.placeholder.com/500x650/D8C8E3/ffffff?text=Aura+Restore+Lilac" alt="Aura Restore">
-        </div>
+          <div class="blog-card-content">
+            <div class="blog-meta">
+              <span class="blog-category">Sustainability</span>
+              <span class="blog-date">November 2025</span>
+            </div>
+            <h2>Breaking the Cycle: The Truth About Ocean Plastic</h2>
+            <p>An in-depth look at how single-use plastics are destroying our oceans, and how circular economy models
+              like NFCycle are creating real solutions for a sustainable future.</p>
+            <a href="pages/blog/ocean-plastic.html" class="btn">Read Article →</a>
+          </div>
+        </article>
+
+        <!-- Post 3: Mindful Wellness -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="blog-card-image"
+            style="background: linear-gradient(135deg, #A8B5A2 0%, #C6E4C7 100%); display: flex; align-items: center; justify-content: center; min-height: 300px;">
+            <i class="fas fa-spa" style="font-size: 4rem; color: white; opacity: 0.6;"></i>
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-meta">
+              <span class="blog-category">Wellness</span>
+              <span class="blog-date">November 2025</span>
+            </div>
+            <h2>Mindful Sips: Integrating Wellness into Your Daily Routine</h2>
+            <p>Explore the connection between stress reduction, mindful hydration, and overall well-being. Learn
+              practical techniques to transform drinking water into a moment of self-care.</p>
+            <a href="pages/blog/mindful-wellness.html" class="btn">Read Article →</a>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section id="process" class="section-padding" style="background:#f8f9fa;">
-    <div class="container">
-      <h2 class="text-center mb-60" data-aos="fade-up">The NFcycle Closed-Loop Process</h2>
-      <div class="process-timeline">
-        <div class="step" data-aos="fade-up">
-          <div class="step-number">1</div>
-          <h4>Waste Collected</h4>
-          <p>Recycled materials → new bottles</p>
-        </div>
-        <div class="step" data-aos="fade-up" data-aos-delay="100">
-          <div class="step-number">2</div>
-          <h4>You Receive Your Personalized Bottle</h4>
-          <p>With your name engraved + NFC tag</p>
-        </div>
-        <div class="step" data-aos="fade-up" data-aos-delay="200">
-          <div class="step-number">3</div>
-          <h4>Tap → Request Refill</h4>
-          <p>Leave bottle at door → we collect & deliver a bridge bottle</p>
-        </div>
-        <div class="step" data-aos="fade-up" data-aos-delay="300">
-          <div class="step-number">4</div>
-          <h4>Cleaned, Refilled, Returned</h4>
-          <p>Zero waste. Endless cycle.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- IMPACT -->
-  <section class="section-padding" style="background:#A8B5A2; color:white;">
-    <div class="container grid-3 text-center">
-      <div data-aos="fade-up">
-        <h3>♻️ 50+</h3>
-        <p>Single-use bottles eliminated per customer per year</p>
-      </div>
-      <div data-aos="fade-up" data-aos-delay="100">
-        <h3>42%</h3>
-        <p>Potential reduction in greying speed with consistent use</p>
-      </div>
-      <div data-aos="fade-up" data-aos-delay="200">
-        <h3>100%</h3>
-        <p>Closed-loop system in Incheon, Korea</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEAM -->
-  <section id="team" class="section-padding bg-white">
-    <div class="container">
-      <h2 class="text-center mb-60" data-aos="fade-up">Our Team</h2>
-      <div class="grid-4">
-        <div class="team-card" data-aos="fade-up">
-          <img src="https://via.placeholder.com/200" alt="Benji">
-          <h4>Benji Kim</h4>
-          <p>Founder & CEO</p>
-        </div>
-        <div class="team-card" data-aos="fade-up" data-aos-delay="100">
-          <img src="https://via.placeholder.com/200" alt="Anvar">
-          <h4>Anvar M.</h4>
-          <p>Operations Director</p>
-        </div>
-        <div class="team-card" data-aos="fade-up" data-aos-delay="200">
-          <img src="https://via.placeholder.com/200" alt="Elena">
-          <h4>Dr. Elena Park</h4>
-          <p>Formulation Advisor (Juno)</p>
-        </div>
-        <div class="team-card" data-aos="fade-up" data-aos-delay="300">
-          <img src="https://via.placeholder.com/200" alt="Team">
-          <h4>Cross-Cultural Team</h4>
-          <p>Korea • Australia • Uzbekistan • Russia</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRE-ORDER FORM -->
-  <section id="preorder" class="section-padding" style="background:#2E7D32; color:white;">
-    <div class="container text-center">
-      <h2 data-aos="fade-up">Secure Your Founding Bottle</h2>
-      <p class="lead mb-40" data-aos="fade-up" data-aos-delay="100">
-        Limited early-bird pricing • Lifetime 30% off all future refills
-      </p>
-
-      <form name="preorder" method="POST" data-netlify="true" class="preorder-form" data-aos="fade-up" data-aos-delay="200">
-        <input type="hidden" name="form-name" value="preorder">
-        <div class="grid-2">
-          <input type="text" name="name" placeholder="Full Name" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <input type="tel" name="phone" placeholder="Phone (010-XXXX-XXXX)" required>
-          <input type="text" name="address" placeholder="Shipping Address (Korea)" required>
-          <select name="product" id="product" required>
-            <option value="">Choose Your Formula</option>
-            <option value="ReGen">ReGen — ₩79,000</option>
-            <option value="Vital Bloom">Vital Bloom — ₩89,000 (Most Popular)</option>
-            <option value="Aura Restore">Aura Restore — ₩85,000</option>
-          </select>
-          <textarea name="message" rows="3" placeholder="Any message or special request?"></textarea>
-        </div>
-        <button type="submit" class="btn btn-lg" style="background:white; color:#2E7D32; margin-top:20px;">
-          Complete Pre-Order →
-        </button>
-      </form>
-      <p class="mt-20 small">Free shipping in South Korea • Expected delivery Q1 2026</p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
-          <h3>NFcycle</h3>
+          <h3>NFCycle</h3>
           <p>Eco-Friendly Today, Grey-Free Tomorrow.</p>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-kakao-talk"></i></a>
-          </div>
         </div>
         <div class="footer-links">
           <h4>Company</h4>
           <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Science</a></li>
-            <li><a href="#">Refill Process</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="blog.html">Blog</a></li>
           </ul>
-        </div>
-        <div class="footer-contact">
-          <h4>Contact</h4>
-          <p><i class="fas fa-map-marker-alt"></i> 123 Juno-ro, Incheon, South Korea</p>
-          <p><i class="fas fa-phone"></i> 010-1234-5678</p>
-          <p><i class="013 fas fa-envelope"></i> hello@nfcycle.com</p>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2025 NFcycle — Demo Day Prototype | All rights reserved</p>
+        <p>&copy; 2025 NFCycle. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -312,11 +132,19 @@
   <script>
     AOS.init({ duration: 800, once: true });
 
+    // Sticky header
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
     // Mobile menu
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('navLinks').classList.toggle('active');
-      document.querySelector('.hamburger i').classList.toggle('fa-bars');
-      document.querySelector('.hamburger i').classList.toggle('fa-times');
     });
   </script>
 </body>
