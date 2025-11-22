@@ -369,6 +369,12 @@
         </div>
     </section>
 
+    <!-- Toast Notification Container -->
+    <div id="toast" class="toast hidden">
+        <i class="fas fa-check-circle"></i>
+        <span class="toast-message"></span>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -449,6 +455,42 @@
             });
         }
 
+        // Navbar Scroll Effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll Spy for Active Nav Links
+        const sections = document.querySelectorAll('section[id]');
+        const navLinksAll = document.querySelectorAll('.nav-links a[href^="#"]');
+
+        function setActiveLink() {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinksAll.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', setActiveLink);
+        setActiveLink(); // Set active on page load
+
         // NFC Demo Simulation
         function simulateNFC() {
             const screen = document.getElementById('nfc-screen');
@@ -471,6 +513,30 @@
             `;
         }
 
+        // Toast Notification Function
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = toast.querySelector('.toast-message');
+            const toastIcon = toast.querySelector('i');
+
+            // Update message and icon
+            toastMessage.textContent = message;
+            toast.classList.remove('success', 'error', 'hidden');
+            toast.classList.add(type);
+
+            // Update icon based on type
+            if (type === 'success') {
+                toastIcon.className = 'fas fa-check-circle';
+            } else {
+                toastIcon.className = 'fas fa-exclamation-circle';
+            }
+
+            // Auto-hide after 4 seconds
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+
         // Pre-order Form Handling
         function handlePreorder(event) {
             event.preventDefault();
@@ -491,19 +557,19 @@
                 }
             }).then(response => {
                 if (response.ok) {
-                    alert("Thank you for your pre-order! We will contact you soon.");
+                    showToast("Thank you for your pre-order! We'll contact you soon.", 'success');
                     form.reset();
                 } else {
                     response.json().then(data => {
                         if (Object.hasOwn(data, 'errors')) {
-                            alert(data["errors"].map(error => error["message"]).join(", "));
+                            showToast(data["errors"].map(error => error["message"]).join(", "), 'error');
                         } else {
-                            alert("Oops! There was a problem submitting your form");
+                            showToast("Oops! There was a problem submitting your form", 'error');
                         }
                     })
                 }
             }).catch(error => {
-                alert("Oops! There was a problem submitting your form");
+                showToast("Oops! There was a problem submitting your form", 'error');
             }).finally(() => {
                 btn.innerText = originalText;
                 btn.disabled = false;
