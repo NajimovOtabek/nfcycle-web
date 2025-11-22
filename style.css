@@ -205,24 +205,6 @@ nav {
     color: var(--color-primary);
 }
 
-/* Hero Section */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to right, #f0f4f0, #ffffff);
-    padding-top: 80px;
-    /* For fixed header */
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    margin-top: 0;
-    /* Override default margin if any */
-    padding-top: 80px;
-    /* Account for fixed header */
-}
-
 .hero-image-container {
     position: absolute;
     top: 0;
@@ -757,66 +739,70 @@ footer {
     .hamburger {
         display: block;
     }
-}
 
-.nav-links.active {
-    right: 0;
-}
+    .nav-links.active {
+        right: 0;
+    }
 
-.nav-links a {
-    font-size: 1.2rem;
-    margin: 1rem 0;
-}
+    .nav-links a {
+        font-size: 1.2rem;
+        margin: 1rem 0;
+    }
 }
 
 /* Product Selection Styles */
-.product-selection-group {
+.product-selection {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
-.product-option {
+.radio-card {
     display: flex;
     align-items: center;
     padding: 15px;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     border-radius: var(--radius-md);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     background-color: #fff;
 }
 
-.product-option:hover {
+.radio-card:hover {
     border-color: var(--color-primary);
     background-color: #f0f9f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.product-option input[type="checkbox"] {
+.radio-card input[type="radio"] {
     margin-right: 15px;
     width: 20px;
     height: 20px;
     accent-color: var(--color-primary);
+    cursor: pointer;
 }
 
-.option-content {
+.card-content {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
-.option-title {
+.card-title {
     font-weight: 600;
     color: var(--color-dark-green);
-    font-size: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
 }
 
-.option-desc {
+.card-desc {
     font-size: 0.9rem;
     color: #666;
 }
 
-/* Highlight selected option */
-.product-option:has(input:checked) {
+/* Highlight selected radio card */
+.radio-card:has(input:checked) {
     border-color: var(--color-primary);
     background-color: #e6f2f1;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
