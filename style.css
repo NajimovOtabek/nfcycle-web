@@ -514,6 +514,164 @@ footer {
     font-family: var(--font-body);
 }
 
+/* Hero Section */
+.hero {
+    background: url('assets/hero_bg.png') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* Darker overlay for better text contrast */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.badge-pill {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 8px 20px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #2E8B57;
+    /* SeaGreen - High Contrast */
+    color: white;
+    box-shadow: 0 4px 15px rgba(46, 139, 87, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: #246B43;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 139, 87, 0.6);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--text-color);
+}
+
+.btn-sm {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* FAQ Section */
+.faq-item {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Pre-Order Form Enhancements */
+.pricing-box {
+    background: #f0fdf4;
+    border: 2px solid var(--primary-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.new-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.discount-tag {
+    background: #ff4757;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.shipping-note {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
 /* NFC Demo */
 .nfc-demo {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -561,50 +719,54 @@ footer {
 }
 
 /* Responsive */
+/* Mobile Menu */
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
 @media (max-width: 768px) {
-
-    .hero-content,
-    .solution-content,
-    .product-item,
-    .process-steps,
-    .impact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-text h1 {
+    .hero h1 {
         font-size: 2.5rem;
     }
 
-    /* Mobile Navigation */
-    .hamburger {
-        display: block;
-        z-index: 1001;
+    .grid {
+        grid-template-columns: 1fr !important;
     }
 
     .nav-links {
         position: fixed;
-        top: 0;
+        top: 70px;
         right: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: white;
+        background: white;
+        width: 100%;
+        height: calc(100vh - 70px);
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        transition: right 0.3s ease;
-        z-index: 1000;
-        padding: 2rem;
+        justify-content: center;
+        transition: 0.3s;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
     }
 
     .nav-links.active {
         right: 0;
     }
 
-    .nav-links a {
-        font-size: 1.2rem;
-        margin: 1rem 0;
+    .hamburger {
+        display: block;
     }
+}
+
+.nav-links.active {
+    right: 0;
+}
+
+.nav-links a {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
 }
 
 /* Product Selection Styles */
