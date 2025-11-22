@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | NFCycle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="NFCycle Logo" style="height: 60px;">
+                </a>
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html#problem">The Problem</a>
+                    <a href="index.html#solution">Our Solution</a>
+                    <a href="index.html#products">Products</a>
+                    <a href="index.html#process">Process</a>
+                    <a href="index.html#team">Team</a>
+                    <a href="index.html#preorder" class="btn btn-sm">Pre-Order</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section-padding" style="margin-top: 80px;">
+        <div class="container">
+            <h1 class="text-center" data-aos="fade-up">About NFCycle</h1>
+            <div style="max-width: 800px; margin: 0 auto;" data-aos="fade-up" data-aos-delay="100">
+                <p style="margin-bottom: 20px;">
+                    NFCycle was born from a simple yet powerful idea: what if your daily hydration habit could also be
+                    the key to sustainable living and personal wellness?
+                </p>
+                <p style="margin-bottom: 20px;">
+                    Our mission is to reduce single-use waste through our innovative NFC-powered personalization system,
+                    enabling a modern haircare ecosystem that is both eco-friendly and effective.
+                </p>
+
+                <h2 style="margin-top: 40px;">Our Vision</h2>
+                <p>
+                    We envision a world where "grey-free" isn't just about hair—it's about a vibrant, stress-free, and
+                    green future. By combining science with nature, we provide solutions that care for you and the
+                    planet.
+                </p>
+
+                <h2 style="margin-top: 40px;">Company Info</h2>
+                <ul style="list-style: disc; padding-left: 20px;">
+                    <li><strong>Company:</strong> NFCycle, LLC (Yuhan Hoesa)</li>
+                    <li><strong>Location:</strong> Incheon, South Korea</li>
+                    <li><strong>Partnership:</strong> Juno Cosmetics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>NFCycle</h3>
+                    <p>Eco-Friendly Today, Grey-Free Tomorrow.</p>
+                    <div class="social-links" style="margin-top: 15px;">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#problem">The Problem</a></li>
+                        <li><a href="index.html#solution">Our Solution</a></li>
+                        <li><a href="index.html#products">Products</a></li>
+                        <li><a href="index.html#team">Team</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Street ro. Incheon, South Korea</p>
+                    <p><i class="fas fa-phone"></i> 010-1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> info@nfcycle.com</p>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Join our newsletter for eco-tips and updates.</p>
+                    <form style="display: flex; gap: 10px; margin-top: 10px;">
+                        <input type="email" placeholder="Your email"
+                            style="padding: 8px; border-radius: 4px; border: none; flex: 1;">
+                        <button type="submit" class="btn"
+                            style="padding: 8px 15px; font-size: 0.9rem;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>NFcycle © 2025 - Demo Day Prototype | <a href="#">Privacy Policy</a> | <a href="#">Terms of
+                        Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+
+</html>
