@@ -15,6 +15,7 @@
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="toast-styles.css">
 </head>
 
 <body>
@@ -32,6 +33,7 @@
                     <a href="#products">Products</a>
                     <a href="#process">Process</a>
                     <a href="#team">Team</a>
+                    <a href="blog.html">Blog</a>
                     <a href="#preorder" class="btn btn-sm">Pre-Order</a>
                 </div>
                 <div class="hamburger" id="hamburger">
@@ -52,13 +54,16 @@
                 <p class="slogan">Eco-Friendly Today, Grey-Free Tomorrow.</p>
                 <p class="hero-desc">NFCycle creates sustainable, recycled eco-bottles designed to reduce waste and
                     support healthier, stress-free habits that slow early greying.</p>
-                <a href="#products" class="btn">Explore the Bottle →</a>
+                <div class="hero-btns">
+                    <a href="#products" class="btn">Explore the Bottle →</a>
+                    <a href="how-it-works.html" class="btn btn-outline">How it Works</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Problem Section -->
-    <section class="problem section-padding">
+    <section class="problem section-padding" id="problem">
         <div class="container">
             <div class="text-center" data-aos="fade-up">
                 <h2>The Problem</h2>
@@ -86,7 +91,7 @@
     </section>
 
     <!-- Solution Section -->
-    <section class="solution section-padding" style="background-color: var(--color-light-gray);">
+    <section class="solution section-padding" id="solution" style="background-color: var(--color-light-gray);">
         <div class="container">
             <div class="grid" style="grid-template-columns: 1fr 1fr; align-items: center;">
                 <div class="solution-text" data-aos="fade-right">
@@ -145,95 +150,100 @@
     <!-- Products Showcase -->
     <section id="products" class="section-padding products">
         <div class="container">
-            <h2 class="text-center" style="margin-bottom: var(--spacing-lg);">Our Collection</h2>
+            <h2 class="text-center">Our Collection</h2>
 
-            <!-- Product 1: ReGen -->
-            <div class="product-item">
-                <div class="product-image">
-                    <img src="assets/product_regen.png" alt="ReGen Bottle - Sage Green"
-                        onerror="this.src='https://placehold.co/500x500/8A9A5B/FFFFFF?text=ReGen'">
-                </div>
-                <div class="product-info">
-                    <h3>ReGen</h3>
-                    <div class="subhead">Stimulate and Awaken</div>
-                    <p>Designed for scalp stimulation, hair growth, and grey-hair prevention.</p>
-                    <div class="product-details">
-                        <ul>
-                            <li><strong>Key Actives:</strong> Rosemary oil (regrowth), Peppermint (circulation), B12 +
-                                Biotin complex</li>
-                            <li><strong>Scent:</strong> Fresh herbal-mint — energizing but natural</li>
-                            <li><strong>Vibe:</strong> Science-meets-herbal lab</li>
-                            <li><strong>Style:</strong> Matte green with metallic silver minimalist text</li>
-                        </ul>
+            <div class="products-grid">
+                <!-- Product 1: ReGen -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="assets/product_regen.png" alt="ReGen Bottle - Sage Green"
+                            onerror="this.src='https://placehold.co/500x500/8A9A5B/FFFFFF?text=ReGen'">
                     </div>
-                    <a href="#" class="btn">Learn More →</a>
+                    <div class="product-info">
+                        <h3>ReGen</h3>
+                        <div class="subhead">Stimulate and Awaken</div>
+                        <p>Designed for scalp stimulation, hair growth, and grey-hair prevention.</p>
+                        <div class="product-details">
+                            <ul>
+                                <li><strong>Key Actives:</strong> Rosemary oil (regrowth), Peppermint (circulation), B12
+                                    +
+                                    Biotin complex</li>
+                                <li><strong>Scent:</strong> Fresh herbal-mint — energizing but natural</li>
+                                <li><strong>Vibe:</strong> Science-meets-herbal lab</li>
+                                <li><strong>Style:</strong> Matte green with metallic silver minimalist text</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn">Learn More →</a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Product 2: Vital Bloom -->
-            <div class="product-item">
-                <div class="product-image">
-                    <img src="assets/product_vital_bloom.png" alt="Vital Bloom Bottle - Pale Jade"
-                        onerror="this.src='https://placehold.co/500x500/A0D6B4/333333?text=Vital+Bloom'">
-                </div>
-                <div class="product-info">
-                    <h3>Vital Bloom</h3>
-                    <div class="subhead">Strength and Balance</div>
-                    <p>Strengthens follicles, reduces shedding, and balances scalp oils.</p>
-                    <div class="product-details">
-                        <ul>
-                            <li><strong>Key Actives:</strong> Korean red ginseng, Green tea antioxidants, Bamboo water,
-                                Vitamin B complex</li>
-                            <li><strong>Scent:</strong> Earthy-green with a clean spa note</li>
-                            <li><strong>Vibe:</strong> Korean wellness + eco-refill lifestyle</li>
-                            <li><strong>Style:</strong> Cream-white background with green bamboo brush lines</li>
-                        </ul>
+                <!-- Product 2: Vital Bloom -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="assets/product_vital_bloom.png" alt="Vital Bloom Bottle - Pale Jade"
+                            onerror="this.src='https://placehold.co/500x500/A0D6B4/333333?text=Vital+Bloom'">
                     </div>
-                    <a href="#" class="btn">Explore Vital Bloom →</a>
+                    <div class="product-info">
+                        <h3>Vital Bloom</h3>
+                        <div class="subhead">Strength and Balance</div>
+                        <p>Strengthens follicles, reduces shedding, and balances scalp oils.</p>
+                        <div class="product-details">
+                            <ul>
+                                <li><strong>Key Actives:</strong> Korean red ginseng, Green tea antioxidants, Bamboo
+                                    water,
+                                    Vitamin B complex</li>
+                                <li><strong>Scent:</strong> Earthy-green with a clean spa note</li>
+                                <li><strong>Vibe:</strong> Korean wellness + eco-refill lifestyle</li>
+                                <li><strong>Style:</strong> Cream-white background with green bamboo brush lines</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn">Explore Vital Bloom →</a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Product 3: Aura Restore -->
-            <div class="product-item">
-                <div class="product-image">
-                    <img src="assets/product_aura_restore.png" alt="Aura Restore Bottle - Soft Lilac"
-                        onerror="this.src='https://placehold.co/500x500/C8A2C8/FFFFFF?text=Aura+Restore'">
-                </div>
-                <div class="product-info">
-                    <h3>Aura Restore</h3>
-                    <div class="subhead">Repair and Calm</div>
-                    <p>Hydration, pigment protection, and scalp soothing for sensitive or greying hair.</p>
-                    <div class="product-details">
-                        <ul>
-                            <li><strong>Key Actives:</strong> Lavender oil, Blueberry antioxidants, Black sesame, B12
-                                infusion</li>
-                            <li><strong>Scent:</strong> Floral-berry blend — calm, elegant, long-lasting</li>
-                            <li><strong>Vibe:</strong> Relaxed, restorative, slightly luxurious</li>
-                            <li><strong>Style:</strong> Minimal lavender tones with silver outline</li>
-                        </ul>
+                <!-- Product 3: Aura Restore -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="assets/product_aura_restore.png" alt="Aura Restore Bottle - Soft Lilac"
+                            onerror="this.src='https://placehold.co/500x500/C8A2C8/FFFFFF?text=Aura+Restore'">
                     </div>
-                    <a href="#" class="btn">Try Aura Restore →</a>
+                    <div class="product-info">
+                        <h3>Aura Restore</h3>
+                        <div class="subhead">Repair and Calm</div>
+                        <p>Hydration, pigment protection, and scalp soothing for sensitive or greying hair.</p>
+                        <div class="product-details">
+                            <ul>
+                                <li><strong>Key Actives:</strong> Lavender oil, Blueberry antioxidants, Black sesame,
+                                    B12
+                                    infusion</li>
+                                <li><strong>Scent:</strong> Floral-berry blend — calm, elegant, long-lasting</li>
+                                <li><strong>Vibe:</strong> Relaxed, restorative, slightly luxurious</li>
+                                <li><strong>Style:</strong> Minimal lavender tones with silver outline</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn">Try Aura Restore →</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding" id="impact" style="background-color: var(--secondary-color); color: white;">
+    <section class="impact-section" id="impact">
         <div class="container text-center">
             <h2 data-aos="fade-up">Our Impact</h2>
-            <div class="grid" style="margin-top: 40px;">
-                <div data-aos="zoom-in" data-aos-delay="100">
-                    <i class="fas fa-leaf fa-3x" style="margin-bottom: 15px;"></i>
+            <div class="impact-grid">
+                <div class="impact-card" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-leaf fa-3x"></i>
                     <h3>100%</h3>
                     <p>Recyclable Materials</p>
                 </div>
-                <div data-aos="zoom-in" data-aos-delay="200">
-                    <i class="fas fa-spa fa-3x" style="margin-bottom: 15px;"></i>
+                <div class="impact-card" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-spa fa-3x"></i>
                     <h3>0%</h3>
                     <p>Harmful Chemicals</p>
                 </div>
-                <div data-aos="zoom-in" data-aos-delay="300">
-                    <i class="fas fa-globe-asia fa-3x" style="margin-bottom: 15px;"></i>
+                <div class="impact-card" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-globe-asia fa-3x"></i>
                     <h3>1 Bottle</h3>
                     <p>Replaces 100+ Single-Use Plastics</p>
                 </div>
