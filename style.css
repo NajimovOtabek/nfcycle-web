@@ -223,6 +223,10 @@ header.scrolled .nav-links a {
     text-shadow: none;
 }
 
+header.scrolled .nav-links a.btn {
+    color: var(--color-white);
+}
+
 .nav-links a:hover {
     color: var(--color-mint);
 }
