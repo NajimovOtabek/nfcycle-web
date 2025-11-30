@@ -5,7 +5,7 @@
     /* Light Sage */
     --color-dark-green: hsl(172, 67%, 26%);
     /* Deep Green */
-    --color-primary: hsl(173, 34%, 40%);
+    --color-primary: hsl(173, 34%, 30%);
     /* Muted Teal/Green */
 
     /* Mapped Colors */
@@ -672,7 +672,7 @@ header.scrolled .nav-links a::after {
 }
 
 .team-social a {
-    color: #888;
+    color: #555;
     font-size: 1.1rem;
     transition: color 0.2s;
 }
@@ -786,7 +786,7 @@ footer {
 
 /* Hero Section */
 .hero {
-    background: url('assets/images/hero-bg.png') no-repeat center center/cover;
+    background: url('assets/images/hero-bg.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     align-items: center;

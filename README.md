@@ -1,6 +1,6 @@
 # NFCycle - Eco-Friendly Today, Grey-Free Tomorrow
 
-![NFCycle Hero](assets/product_regen.png)
+![NFCycle Hero](assets/images/products/regen.jpg)
 
 ## 🌍 Project Overview
 
