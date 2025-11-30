@@ -899,7 +899,7 @@ footer {
 
 .btn-outline:hover {
     background: white;
-    color: var(--text-color);
+    color: var(--color-text-dark);
 }
 
 .btn-sm {
