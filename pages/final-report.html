@@ -8,6 +8,9 @@
     <meta name="description"
         content="NFCycle Final Business Report: Executive Summary, Market Analysis, Technology Overview, and Financial Forecasts.">
     <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <link rel="canonical" href="https://nfcycle.netlify.app/pages/final-report.html">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -93,11 +96,28 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .report-image caption {
+        .report-img-enhanced {
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            max-width: 100%;
             display: block;
-            margin-top: 10px;
-            font-style: italic;
-            color: #777;
+            margin: 0 auto;
+        }
+
+        .report-img-enhanced:hover {
+            transform: translateY(-5px);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            margin: 30px 0;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
         }
 
         .table-container {
@@ -246,8 +266,10 @@
                 policies that will require 30% recycled plastic usage by 2030. NFCycle aligns perfectly with these macro
                 trends, positioning itself not just as a shampoo brand, but as a circular economy platform that helps
                 consumers navigate the shift to sustainable living without friction.</p>
-            <div class="report-image">
-                <img src="../assets/images/report/image4.png" alt="Market Growth Graph">
+            <div class="chart-container">
+                <canvas id="marketChart"></canvas>
+                <p style="text-align: center; font-style: italic; color: #777; margin-top: 10px;">Figure 1: Projected
+                    Growth of South Korean Hair & Scalp Care Market (2024-2030)</p>
             </div>
         </section>
 
@@ -263,9 +285,9 @@
                 bars, often fail to provide the "medical-grade" reassurance these anxious consumers demand.</p>
             <div class="report-image">
                 <img src="../assets/images/report/image8.png" alt="Hair Loss Statistics"
-                    style="max-width: 45%; display: inline-block; margin-right: 5%;">
+                    style="max-width: 45%; display: inline-block; margin-right: 5%;" class="report-img-enhanced">
                 <img src="../assets/images/report/image6.png" alt="Plastic Waste Issue"
-                    style="max-width: 45%; display: inline-block;">
+                    style="max-width: 45%; display: inline-block;" class="report-img-enhanced">
             </div>
 
             <h3>Our Solution</h3>
@@ -284,7 +306,8 @@
                     potent, functional product.</li>
             </ul>
             <div class="report-image">
-                <img src="../assets/images/report/image3.jpg" alt="NFC Tap Demonstration" style="max-width: 300px;">
+                <img src="../assets/images/report/image3.jpg" alt="NFC Tap Demonstration" class="report-img-enhanced"
+                    style="max-width: 300px;">
             </div>
         </section>
 
@@ -360,8 +383,10 @@
                     </tbody>
                 </table>
             </div>
-            <div class="report-image">
-                <img src="../assets/images/report/image9.png" alt="Market Growth Graph">
+            <div class="chart-container">
+                <canvas id="competitionChart"></canvas>
+                <p style="text-align: center; font-style: italic; color: #777; margin-top: 10px;">Figure 2: Competitive
+                    Landscape Analysis</p>
             </div>
         </section>
 
@@ -402,7 +427,8 @@
                     updates the status of every bottle (e.g., Received, Washed, Refilled) in real-time.</li>
             </ol>
             <div class="report-image">
-                <img src="../assets/images/report/image1.jpg" alt="NFC Tap & Loyalty Logic Diagram">
+                <img src="../assets/images/report/image1.jpg" alt="NFC Tap & Loyalty Logic Diagram"
+                    class="report-img-enhanced">
             </div>
         </section>
 
@@ -431,7 +457,7 @@
                 recess in the base to house the NFC tag flush with the surface. Simultaneously, we are finalizing Figma
                 wireframes for the mobile PWA (Progressive Web app) to ensure an intuitive user journey.</p>
             <div class="report-image">
-                <img src="../assets/images/report/image2.jpg" alt="Bottle Prototype">
+                <img src="../assets/images/report/image2.jpg" alt="Bottle Prototype" class="report-img-enhanced">
             </div>
         </section>
 
@@ -594,6 +620,154 @@
                 hamburger.classList.toggle('active');
             });
         }
+
+        // Chart.js Implementations
+
+        // 1. Market Growth Chart
+        const ctxMarket = document.getElementById('marketChart').getContext('2d');
+        new Chart(ctxMarket, {
+            type: 'bar',
+            data: {
+                labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'],
+                datasets: [{
+                    label: 'Market Size (Billions USD)',
+                    data: [4.2, 4.5, 4.8, 5.2, 5.5, 5.8, 6.13],
+                    backgroundColor: 'rgba(46, 139, 87, 0.7)', // Sage Green
+                    borderColor: 'rgba(46, 139, 87, 1)',
+                    borderWidth: 1,
+                    borderRadius: 5
+                },
+                {
+                    type: 'line',
+                    label: 'Growth Trend',
+                    data: [4.2, 4.5, 4.8, 5.2, 5.5, 5.8, 6.13],
+                    borderColor: '#2F4F4F', // Dark Slate Grey
+                    borderWidth: 2,
+                    fill: false,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'South Korean Hair & Scalp Care Market Growth',
+                        font: { size: 16 }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 3.5
+                    }
+                }
+            }
+        });
+
+        // 2. Competition Matrix (Scatter Plot)
+        const ctxComp = document.getElementById('competitionChart').getContext('2d');
+        new Chart(ctxComp, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'NFCycle',
+                    data: [{ x: 9, y: 9 }],
+                    backgroundColor: '#2E8B57', // Primary Green
+                    pointRadius: 12,
+                    pointHoverRadius: 14
+                },
+                {
+                    label: 'Dr. Groot (LG H&H)',
+                    data: [{ x: 8, y: 3 }],
+                    backgroundColor: '#A9A9A9', // Grey
+                    pointRadius: 8
+                },
+                {
+                    label: 'Aromatica (Refill Station)',
+                    data: [{ x: 3, y: 8 }],
+                    backgroundColor: '#A9A9A9',
+                    pointRadius: 8
+                },
+                {
+                    label: 'Shampoo Bars',
+                    data: [{ x: 5, y: 8.5 }],
+                    backgroundColor: '#A9A9A9',
+                    pointRadius: 8
+                },
+                {
+                    label: 'Traditional Shampoo',
+                    data: [{ x: 9, y: 1 }],
+                    backgroundColor: '#A9A9A9',
+                    pointRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                return context.dataset.label;
+                            }
+                        }
+                    },
+                    legend: {
+                        position: 'bottom'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Convenience vs. Sustainability Matrix',
+                        font: { size: 16 }
+                    },
+                    annotation: {
+                        annotations: {
+                            label1: {
+                                type: 'label',
+                                xValue: 9.5,
+                                yValue: 5,
+                                content: ['High Convenience'],
+                                color: '#666',
+                                font: { size: 10 }
+                            },
+                            label2: {
+                                type: 'label',
+                                xValue: 5,
+                                yValue: 9.5,
+                                content: ['High Sustainability'],
+                                color: '#666',
+                                font: { size: 10 }
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom',
+                        title: {
+                            display: true,
+                            text: 'Convenience (Low -> High)'
+                        },
+                        min: 0,
+                        max: 10
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Sustainability (Low -> High)'
+                        },
+                        min: 0,
+                        max: 10
+                    }
+                }
+            }
+        });
     </script>
 </body>
 
