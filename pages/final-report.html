@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Report | NFCycle</title>
+    <meta name="description"
+        content="NFCycle Final Business Report: Executive Summary, Market Analysis, Technology Overview, and Financial Forecasts.">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Report Specific Styles */
+        .report-container {
+            max-width: 900px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+        }
+
+        .report-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .report-header h1 {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .report-header .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .report-section {
+            margin-bottom: 50px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .report-section h2 {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .report-section h3 {
+            font-size: 1.4rem;
+            color: #2F4F4F;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .report-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .report-section ul,
+        .report-section ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .report-section li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .report-image {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .report-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .report-image caption {
+            display: block;
+            margin-top: 10px;
+            font-style: italic;
+            color: #777;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .toc {
+            background: #f4f4f4;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 50px;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+        }
+
+        .toc a {
+            color: var(--color-text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .toc a:hover {
+            color: var(--color-primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header (Always Scrolled/Dark for visibility) -->
+    <header class="scrolled">
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">
+                    <img src="../assets/images/logo.png" alt="NFCycle Logo" style="height: 60px;">
+                </a>
+                <div class="nav-links" id="navLinks">
+                    <a href="../index.html#problem">The Problem</a>
+                    <a href="../index.html#solution">Our Solution</a>
+                    <a href="../index.html#products">Products</a>
+                    <a href="../index.html#process">Process</a>
+                    <a href="../index.html#team">Team</a>
+                    <a href="final-report.html" class="active">Final Report</a>
+                    <a href="../index.html#preorder" class="btn btn-sm">Pre-Order</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="report-container">
+        <div class="report-header" data-aos="fade-down">
+            <h1>NFCycle Business Plan</h1>
+            <p class="subtitle">Final Report - Team #2</p>
+            <p style="margin-top: 10px; color: #888;">Date: November 27, 2025</p>
+        </div>
+
+        <div class="toc" data-aos="fade-up">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#executive-summary">Executive Summary</a></li>
+                <li><a href="#company-overview">1. Company Overview</a></li>
+                <li><a href="#problem-solution">2. Problem & Solution</a></li>
+                <li><a href="#target-market">3. Target Market</a></li>
+                <li><a href="#competition">4. Competition</a></li>
+                <li><a href="#offerings">5. Product or Service Offerings</a></li>
+                <li><a href="#technology">6. Technology Overview</a></li>
+                <li><a href="#testing">7. Testing and QA</a></li>
+                <li><a href="#demo">8. Demo and Prototype</a></li>
+                <li><a href="#security">9. Security & Scalability</a></li>
+                <li><a href="#marketing">10. Marketing</a></li>
+                <li><a href="#operations">11. Operations</a></li>
+                <li><a href="#financials">12. Financial Forecasts</a></li>
+                <li><a href="#conclusion">13. Conclusion</a></li>
+            </ul>
+        </div>
+
+        <section id="executive-summary" class="report-section" data-aos="fade-up">
+            <h2>Executive Summary</h2>
+            <p>NFCycle enters the South Korean personal care market at a crucial moment where consumer demand for
+                high-efficacy clinical products crosses with an urgent need for verifiable sustainability. We are
+                establishing a closed-loop, refillable hair care ecosystem that leverages Near Field Communication (NFC)
+                technology to solve the plastic waste issue while addressing the growing prevalence of hair loss among
+                young adults.</p>
+            <p>Our business model changes the traditional "buy-and-dispose" cycle by replacing it with a seamless
+                "scan-return-refill" loop. The core of our offer is a premium anti-hair loss shampoo, created and
+                manufactured in a strategic partnership with <strong>Juno Cosmetics</strong>, a prominent Incheon-based
+                ODM. Moreover, this collaboration allows us to bypass the capital-intensive requirements of setting up
+                our own manufacturing plant, enabling us to focus on our key differentiator, the logistics and
+                technology platform.</p>
+            <p>The physical product is delivered in a durable, high-quality PETG bottle with an encrypted NFC tag. This
+                tag acts as the bottle's digital passport, verifying its authenticity, tracking its refill cycles to
+                ensure hygiene, and rewarding customers with loyalty points upon every return. We target the "anxious
+                optimizer", a demographic of digital natives in their 20s and 30s who are actively seeking medical-grade
+                solutions for hair thinning but are increasingly alienated by the environmental guilt associated with
+                excessive packaging. Next, with the domestic hair loss market projected to exceed $6 billion by 2030,
+                NFCycle is poised to capture a valuable niche by proving that sustainability does not require a
+                compromise on convenience or quality.</p>
+        </section>
+
+        <section id="company-overview" class="report-section" data-aos="fade-up">
+            <h2>1. Company Overview</h2>
+            <p>NFCycle operates as a technology-enabled consumer goods company within the functional personal care
+                sector. We are structured as a <strong>Yuhan Hoesa (Limited Liability Company)</strong>, a choice that
+                secures our intellectual property rights regarding our proprietary logistics software and bottle designs
+                while offering the flexibility needed for our partnership with Juno Cosmetics and Jeongin Cosmetics.</p>
+            <p>The South Korean market is currently witnessing the "skinification" of hair care (due to hair loss
+                crisis), where consumers treat their scalps with the same attention and investment as their faces.
+                Simultaneously, regulatory pressure is increasing, with the government enforcing stricter recycling
+                policies that will require 30% recycled plastic usage by 2030. NFCycle aligns perfectly with these macro
+                trends, positioning itself not just as a shampoo brand, but as a circular economy platform that helps
+                consumers navigate the shift to sustainable living without friction.</p>
+            <div class="report-image">
+                <img src="../assets/images/report/image4.png" alt="Market Growth Graph">
+            </div>
+        </section>
+
+        <section id="problem-solution" class="report-section" data-aos="fade-up">
+            <h2>2. Problem & Solution</h2>
+            <h3>The Problem</h3>
+            <p>The cosmetics industry is facing a double crisis. First, it is the environmental impact, despite
+                widespread recycling bins, the reality is that most cosmetic packaging in Korea is incinerated or
+                landfilled due to composite materials and contamination. Consumers are aware of this and suffer from
+                "eco-anxiety," desiring to do better but lacking viable options.</p>
+            <p>Secondly, it is the rising stress regarding hair health. Hair loss is no longer just an issue for the
+                elderly; 64% of patients are now in their 20s to 40s. Current eco-friendly alternatives, like shampoo
+                bars, often fail to provide the "medical-grade" reassurance these anxious consumers demand.</p>
+            <div class="report-image">
+                <img src="../assets/images/report/image8.png" alt="Hair Loss Statistics"
+                    style="max-width: 45%; display: inline-block; margin-right: 5%;">
+                <img src="../assets/images/report/image6.png" alt="Plastic Waste Issue"
+                    style="max-width: 45%; display: inline-block;">
+            </div>
+
+            <h3>Our Solution</h3>
+            <p>NFCycle resolves this tension with a "Smart Circular Ecosystem."</p>
+            <ul>
+                <li><strong>Zero-Friction Refills:</strong> We remove the inconvenience of traditional refill option. A
+                    customer simply taps their phone to the bottle to request a refill. Our logistics partner collects
+                    the empty bottle from their doorstep and immediately hands over a fresh one or a temporary "bridge
+                    bottle," ensuring they never run out of product.</li>
+                <li><strong>Digital Verification:</strong> The embedded NFC tag creates a digital twin for every bottle.
+                    This allows us to track the number of reuse cycles for hygiene safety and gamifies the experience
+                    for the user, who can see exactly how much plastic they have diverted from landfills.</li>
+                <li><strong>Uncompromised Efficiency:</strong> By partnering with Juno and Jeongin Cosmetics companies,
+                    we ensure our formulas (Regen, Vital Bloom, Aura Restore) meet the rigorous standards of the
+                    Ministry of Food and Drug Safety (MFDS), assuring customers that our sustainable packaging houses a
+                    potent, functional product.</li>
+            </ul>
+            <div class="report-image">
+                <img src="../assets/images/report/image3.jpg" alt="NFC Tap Demonstration" style="max-width: 300px;">
+            </div>
+        </section>
+
+        <section id="target-market" class="report-section" data-aos="fade-up">
+            <h2>3. Target Market</h2>
+            <h3>Market Size & Segments</h3>
+            <ul>
+                <li><strong>Total Addressable Market (TAM):</strong> The South Korean Hair & Scalp Care Market, which is
+                    on a trajectory to reach $6.13 Billion by 2030.</li>
+                <li><strong>Serviceable Available Market (SAM):</strong> The premium functional shampoo segment within
+                    the Seoul and Incheon metropolitan areas, representing approximately 40% of the total market value.
+                </li>
+                <li><strong>Serviceable Obtainable Market (SOM):</strong> We aim to capture 0.5% of the Incheon market
+                    in our first year, which translates to roughly 5,000 active subscribers.</li>
+            </ul>
+            <h3>Customer Persona: "The Anxious Optimizer"</h3>
+            <p>Our primary customer is an urban professional aged 25–45 with a disposable income exceeding 3.5 million
+                KRW per month. Psychographically, they are deeply concerned with self-preservation (health, appearance)
+                and are environmentally conscious, yet they are "time-poor." They are digital natives who are
+                comfortable with mobile technology and are willing to pay a premium for services that offer "convenience
+                with a conscience."</p>
+        </section>
+
+        <section id="competition" class="report-section" data-aos="fade-up">
+            <h2>4. Competition</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>NFCycle (Us)</th>
+                            <th>LG H&H (Dr. Groot)</th>
+                            <th>Aromatica (Refill Station)</th>
+                            <th>Shampoo Bars</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sustainability</td>
+                            <td>High (Closed Loop)</td>
+                            <td>Low (Recyclable)</td>
+                            <td>High (Reuse)</td>
+                            <td>High (Zero Waste)</td>
+                        </tr>
+                        <tr>
+                            <td>Convenience</td>
+                            <td>High (Doorstep)</td>
+                            <td>High (Retail)</td>
+                            <td>Low (Visit Store)</td>
+                            <td>Medium (Learning curve)</td>
+                        </tr>
+                        <tr>
+                            <td>Tech Integration</td>
+                            <td>High (NFC/IoT)</td>
+                            <td>Low</td>
+                            <td>Low</td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td>Efficacy Perception</td>
+                            <td>High (Functional)</td>
+                            <td>High (Medical)</td>
+                            <td>Medium (Natural)</td>
+                            <td>Medium (Natural)</td>
+                        </tr>
+                        <tr>
+                            <td>Refill Incentive</td>
+                            <td>Auto-Loyalty</td>
+                            <td>None</td>
+                            <td>Low</td>
+                            <td>None</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="report-image">
+                <img src="../assets/images/report/image9.png" alt="Market Growth Graph">
+            </div>
+        </section>
+
+        <section id="offerings" class="report-section" data-aos="fade-up">
+            <h2>5. Product or Service Offerings</h2>
+            <h3>Product: NFCycle Functional Shampoo Line</h3>
+            <p>We are launching three targeted variants:</p>
+            <ol>
+                <li><strong>Regen:</strong> Scalp stimulation, hair growth, and grey-hair prevention.</li>
+                <li><strong>Vital Bloom:</strong> Follicles strengthening, shedding reduction, and scalp oils balancing.
+                </li>
+                <li><strong>Aura Restore:</strong> Hydration, pigment protection, and scalp soothing for sensitive or
+                    greying hair.</li>
+            </ol>
+            <p>All products are housed in 500ml PETG bottles, selected for their glass-like clarity and high chemical
+                resistance, ensuring safety across multiple sterilization cycles.</p>
+            <h3>Unique Selling Proposition (USP)</h3>
+            <p>We basically transform the bottle from "trash" into a "wallet." The embedded NFC tag stores the
+                customer's loyalty points and environmental impact data, creating a tangible asset that encourages
+                retention.</p>
+            <h3>Service: The "Bridge Bottle" Loop</h3>
+            <p>To solve the downtime issue inherent in mail-order refills, we provide a "Bridge Bottle", a travel-sized
+                unit handed to the customer during the wash cycle. This ensures their hair care routine is never
+                interrupted.</p>
+        </section>
+
+        <section id="technology" class="report-section" data-aos="fade-up">
+            <h2>6. Technology Overview</h2>
+            <h3>Hardware & Software Components</h3>
+            <ol>
+                <li><strong>NFC Hardware:</strong> We utilize NXP NTAG 424 DNA tags, which feature AES-128 encryption to
+                    prevent cloning and ensure that loyalty points are only awarded for genuine interactions.</li>
+                <li><strong>User Frontend:</strong> A Progressive Web App (PWA) that launches instantly upon tapping the
+                    bottle, removing the barrier of downloading an app from a store.</li>
+                <li><strong>Backend Database:</strong> A cloud-hosted SQL database that manages the complex
+                    relationships between User IDs and unique Bottle UIDs.</li>
+                <li><strong>Logistics Interface:</strong> An industrial scanning system at the Juno facility that
+                    updates the status of every bottle (e.g., Received, Washed, Refilled) in real-time.</li>
+            </ol>
+            <div class="report-image">
+                <img src="../assets/images/report/image1.jpg" alt="NFC Tap & Loyalty Logic Diagram">
+            </div>
+        </section>
+
+        <section id="testing" class="report-section" data-aos="fade-up">
+            <h2>7. Testing and Quality Assurance</h2>
+            <h3>Software Testing Strategy</h3>
+            <ul>
+                <li><strong>Unit Testing:</strong> Verifying logic for loyalty point calculations to ensure points are
+                    never double-counted.</li>
+                <li><strong>Security Testing:</strong> Conducting penetration testing, specifically attempting "Replay
+                    Attacks" to confirm our server correctly rejects used authentication codes.</li>
+            </ul>
+            <h3>Hardware Testing Strategy</h3>
+            <ul>
+                <li><strong>Durability (ISO 10373-6):</strong> The NFC tags will undergo torsion and bending tests to
+                    ensure they survive the rigors of delivery.</li>
+                <li><strong>Wash Cycle Simulation:</strong> We will subject tagged bottles to 50 cycles of
+                    high-temperature washing (80°C) and UV-C sterilization to certify that the digital components remain
+                    functional under industrial cleaning conditions.</li>
+            </ul>
+        </section>
+
+        <section id="demo" class="report-section" data-aos="fade-up">
+            <h2>8. Demo and Prototype Development</h2>
+            <p>We are creating CAD (Computer-aided design) drawings of the PETG bottle, specifically engineering a
+                recess in the base to house the NFC tag flush with the surface. Simultaneously, we are finalizing Figma
+                wireframes for the mobile PWA (Progressive Web app) to ensure an intuitive user journey.</p>
+            <div class="report-image">
+                <img src="../assets/images/report/image2.jpg" alt="Bottle Prototype">
+            </div>
+        </section>
+
+        <section id="security" class="report-section" data-aos="fade-up">
+            <h2>9. Security, Compliance, and Scalability</h2>
+            <h3>Security and Compliance Protocols</h3>
+            <ul>
+                <li><strong>Anti-Cloning:</strong> The NTAG 424 DNA's rolling code feature is our primary defense
+                    against mass cloning.</li>
+                <li><strong>Data Privacy (PIPA):</strong> We are fully compliant with South Korea's Personal Information
+                    Protection Act (PIPA). All user data is encrypted, and explicit consent is gathered at the first
+                    scan.</li>
+                <li><strong>Hygiene:</strong> Our washing process adheres to ISO/TR 18811 guidelines for stability and
+                    hygiene in reused cosmetic containers.</li>
+            </ul>
+            <h3>Scalability Strategy</h3>
+            <ul>
+                <li><strong>Cloud Infrastructure:</strong> Our serverless architecture (AWS Lambda) allows us to scale
+                    computing power automatically.</li>
+                <li><strong>Manufacturing:</strong> Our partnership with Juno Cosmetics enables us to scale production
+                    from 1,000 to 100,000 units without capital expenditure.</li>
+            </ul>
+        </section>
+
+        <section id="marketing" class="report-section" data-aos="fade-up">
+            <h2>10. Marketing</h2>
+            <h3>Marketing Strategies</h3>
+            <ol>
+                <li><strong>The "Juno Experience" (B2B2C):</strong> We will deploy display units in Juno Hair Salons,
+                    allowing stylists to demonstrate the "Tap to Refill" feature. The stylist's recommendation transfers
+                    immediate trust in our product.</li>
+                <li><strong>Influencer "Unboxing & Returning":</strong> We will partner with eco-conscious YouTubers to
+                    film the entire lifecycle, not just unboxing, but the return process, highlighting the ease of our
+                    system.</li>
+                <li><strong>Referral Loops:</strong> We utilize a "Tap to Share" feature where users can tap their
+                    bottle to a friend's phone to instantly transfer a discount code.</li>
+            </ol>
+            <h3>Goals (Year 1)</h3>
+            <ul>
+                <li><strong>User Acquisition:</strong> Acquire 5,000 active subscribers by the end of Year 1.</li>
+                <li><strong>Brand Awareness:</strong> Achieve 10,000 monthly unique visitors by Month 6.</li>
+                <li><strong>Circularity:</strong> Maintain an 80% bottle return rate.</li>
+            </ul>
+        </section>
+
+        <section id="operations" class="report-section" data-aos="fade-up">
+            <h2>11. Operations</h2>
+            <p>Our HQ and warehousing are co-located within the Juno Cosmetics facility in Incheon. This grants us
+                access to their loading docks and storage. A dedicated section is equipped with our industrial bottle
+                washers and UV sterilizers.</p>
+            <h3>Management Team</h3>
+            <ul>
+                <li><strong>Chinieva Shokhida (CEO):</strong> Vision, funding, and partnerships.</li>
+                <li><strong>Benjamin (CTO):</strong> Technical strategy, NFC architecture, and security.</li>
+                <li><strong>Javokhir (COO):</strong> Operations, logistics, and facility management.</li>
+                <li><strong>Anna (CMO):</strong> Marketing strategy, B2B2C partnerships, and user acquisition.</li>
+                <li><strong>Ziyodbek (CFO):</strong> Financial health, budgeting, and forecasting.</li>
+                <li><strong>Anvar (PM):</strong> Product roadmap and customer feedback.</li>
+                <li><strong>Otabek (Developer):</strong> Backend systems and logistics integration.</li>
+            </ul>
+        </section>
+
+        <section id="financials" class="report-section" data-aos="fade-up">
+            <h2>12. Financial Forecasts</h2>
+            <h3>Revenue Streams</h3>
+            <ol>
+                <li><strong>Starter Kits:</strong> One-time purchase (High margin).</li>
+                <li><strong>Refill Service:</strong> Recurring revenue (High volume, high retention).</li>
+                <li><strong>Subscription:</strong> Optional "Auto-Refill" based on usage.</li>
+            </ol>
+            <h3>Key Assumptions</h3>
+            <p>We assume an initial set price of 32,000 KRW and a refill price of 21,000 KRW. Our cost of goods sold
+                (COGS) for refills is estimated at 8,000 KRW (including reverse logistics). This yields a gross margin
+                of approximately 62%. We forecast 450 million KRW in Year 1 revenue.</p>
+        </section>
+
+        <section id="conclusion" class="report-section" data-aos="fade-up">
+            <h2>13. Conclusion</h2>
+            <p>NFCycle redefines the premium personal care market by merging Juno Cosmetics' proven efficacy with a
+                seamless, NFC-enabled circular logistics platform. Our unique "Tap-to-Refill" and "Bridge Bottle"
+                systems eliminate the friction of sustainability, directly addressing the dual consumer anxieties of
+                hair loss and plastic waste. With a defensible IP moat and a high-retention subscription model, we
+                project strong lifetime value and profitability by Year 2. As South Korea enforces stricter 2030
+                environmental standards, NFCycle is positioned not just to comply, but to lead the industry toward a
+                profitable, zero-waste future.</p>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>NFCycle</h3>
+                    <p>Eco-Friendly Today, Grey-Free Tomorrow.</p>
+                    <div class="social-links" style="margin-top: 15px;">
+                        <a href="https://facebook.com/nfcycle" target="_blank" rel="noopener" aria-label="Facebook"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com/nfcycle" target="_blank" rel="noopener" aria-label="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/nfcycle" target="_blank" rel="noopener" aria-label="Twitter"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com/company/nfcycle" target="_blank" rel="noopener"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html#problem">The Problem</a></li>
+                        <li><a href="../index.html#solution">Our Solution</a></li>
+                        <li><a href="../index.html#products">Products</a></li>
+                        <li><a href="../index.html#team">Team</a></li>
+                        <li><a href="final-report.html">Final Report</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Street ro. Incheon, South Korea</p>
+                    <p><i class="fas fa-phone"></i> 010-1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> info@nfcycle.com</p>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Join our newsletter for eco-tips and updates.</p>
+                    <form action="https://formsubmit.co/2693174e04c37dc21efd936ac7df9463" method="POST"
+                        style="display: flex; gap: 10px; margin-top: 10px;">
+                        <input type="email" name="email" placeholder="Your email"
+                            style="padding: 8px; border-radius: 4px; border: none; flex: 1;">
+                        <button type="submit" class="btn"
+                            style="padding: 8px 15px; font-size: 0.9rem;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>NFCycle © 2025 - Demo Day Prototype | <a href="#">Privacy Policy</a> | <a href="#">Terms of
+                        Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+
+</html>
