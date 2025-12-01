@@ -897,18 +897,12 @@ footer {
     overflow: hidden;
     box-shadow: -20px 40px 80px rgba(0, 0, 0, 0.12);
     /* Deep, soft shadow */
-    transform: perspective(1500px) rotateY(-8deg) scale(0.95);
-    /* Initial 3D stance */
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     /* Smooth physics-like transition */
-    background: white;
-    /* Fallback/Border effect */
-    padding: 10px;
-    /* Creates a white border frame */
 }
 
 .hero-video:hover {
-    transform: perspective(1500px) rotateY(0deg) scale(1.02);
+    transform: scale(1.02);
     /* "Pop" effect on hover */
     box-shadow: 0 30px 60px rgba(46, 139, 87, 0.2);
     /* Green glow on hover */
