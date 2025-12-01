@@ -807,71 +807,168 @@ footer {
     border-color: #10b981;
 }
 
-/* Hero Section */
+/* Hero Section - Split Layout */
 .hero {
-    background: url('assets/images/hero-bg.jpg') no-repeat center center/cover;
-    height: 100vh;
+    background-color: #f4f7f4;
+    /* Light background matching dashboard */
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
     position: relative;
+    padding-top: 80px;
+    /* Space for fixed header */
+    overflow: hidden;
+    /* Prevent scrollbars from 3D effects */
 }
 
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    /* Give more space to video */
+    gap: 60px;
+    align-items: center;
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    /* Darker overlay for better text contrast */
+    max-width: 1400px;
+    /* Allow wider layout */
+    margin: 0 auto;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    padding: 20px;
+.hero-text {
+    padding-right: 20px;
+    z-index: 2;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 4rem;
+    /* Larger, more impactful headline */
+    margin-bottom: 25px;
+    font-weight: 800;
+    color: #1a3c34;
+    /* Deep Forest Green for better contrast */
+    line-height: 1.1;
+    letter-spacing: -1px;
 }
 
 .hero p {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    line-height: 1.8;
-    max-width: 65ch;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 1.25rem;
+    margin-bottom: 45px;
+    color: #4a5568;
+    /* Slate gray for readability */
+    line-height: 1.7;
+    max-width: 540px;
 }
 
-.hero-btns {
+.hero-buttons {
     display: flex;
     gap: 20px;
-    justify-content: center;
     flex-wrap: wrap;
-    margin-top: 50px;
 }
 
-.hero .btn {
-    font-size: 1.2rem;
-    padding: 16px 40px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    background-color: SeaGreen;
-    transition: all 0.3s ease;
+/* Updated Button Styles for Light Background */
+.hero .btn-outline {
+    border: 2px solid #1a3c34;
+    color: #1a3c34;
+    font-weight: 600;
 }
 
-.hero .btn:hover {
+.hero .btn-outline:hover {
+    background: #1a3c34;
+    color: white;
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 20px rgba(26, 60, 52, 0.15);
+}
+
+.hero .btn-primary {
+    background-color: #2E8B57;
+    box-shadow: 0 10px 25px rgba(46, 139, 87, 0.3);
+    /* Softer, larger shadow */
+}
+
+.hero .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(46, 139, 87, 0.4);
+}
+
+/* Enhanced Video Section */
+.hero-video {
+    position: relative;
+    border-radius: 40px;
+    /* Softer corners */
+    overflow: hidden;
+    box-shadow: -20px 40px 80px rgba(0, 0, 0, 0.12);
+    /* Deep, soft shadow */
+    transform: perspective(1500px) rotateY(-8deg) scale(0.95);
+    /* Initial 3D stance */
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    /* Smooth physics-like transition */
+    background: white;
+    /* Fallback/Border effect */
+    padding: 10px;
+    /* Creates a white border frame */
+}
+
+.hero-video:hover {
+    transform: perspective(1500px) rotateY(0deg) scale(1.02);
+    /* "Pop" effect on hover */
+    box-shadow: 0 30px 60px rgba(46, 139, 87, 0.2);
+    /* Green glow on hover */
+}
+
+.hero-video-element {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 30px;
+    /* Inner radius */
+}
+
+/* Responsive Hero */
+@media (max-width: 992px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 50px;
+        padding: 0 20px;
+    }
+
+    .hero-text {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-video {
+        transform: none;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 5px;
+    }
+
+    .hero-video:hover {
+        transform: scale(1.02);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 100px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
 }
 
 .badge-pill {
