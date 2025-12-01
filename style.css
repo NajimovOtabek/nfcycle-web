@@ -60,9 +60,31 @@ html {
 body {
     font-family: var(--font-body);
     color: var(--color-text-dark);
-    background-color: var(--color-white);
+    background: linear-gradient(135deg, #E8F5E8 0%, #E0F7FA 50%, #FFF8E7 100%);
     line-height: 1.6;
     overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Floating Leaves Animation */
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.3;
+    }
+
+    90% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 /* Typography Hierarchy */
@@ -212,10 +234,9 @@ nav {
 
 .nav-links a {
     font-weight: 600;
-    color: var(--color-white);
+    color: var(--color-text-dark);
     position: relative;
     transition: color 0.3s ease;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 header.scrolled .nav-links a {
@@ -809,8 +830,8 @@ footer {
 
 /* Hero Section - Split Layout */
 .hero {
-    background-color: #f4f7f4;
-    /* Light background matching dashboard */
+    background-color: transparent;
+    /* Transparent to show body gradient */
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -821,14 +842,36 @@ footer {
     /* Prevent scrollbars from 3D effects */
 }
 
+.hero::before,
+.hero::after {
+    content: '🍃';
+    position: absolute;
+    font-size: 24px;
+    opacity: 0;
+    animation: float 15s infinite linear;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero::before {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.hero::after {
+    left: 85%;
+    animation-delay: 7s;
+    font-size: 30px;
+}
+
 .hero-container {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     /* Give more space to video */
-    gap: 60px;
+    gap: 40px;
     align-items: center;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1600px;
     /* Allow wider layout */
     margin: 0 auto;
 }
