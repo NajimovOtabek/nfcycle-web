@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | NFCycle</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #f4f7f4;
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 260px;
+            background-color: white;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            padding-left: 10px;
+        }
+
+        .sidebar-logo img {
+            height: 40px;
+        }
+
+        .sidebar-logo span {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--color-primary);
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            flex-grow: 1;
+        }
+
+        .nav-item {
+            margin-bottom: 10px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 15px;
+            color: #666;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: #e8f5e9;
+            color: var(--color-primary);
+        }
+
+        .nav-link i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .user-mini-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            margin-top: auto;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex-grow: 1;
+            margin-left: 260px;
+            padding: 30px;
+        }
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .header-title h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #2F4F4F;
+        }
+
+        .header-title p {
+            margin: 5px 0 0;
+            color: #888;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-weight: 700;
+            color: #444;
+            margin: 0;
+        }
+
+        /* Specific Card Layouts */
+        .card-stats {
+            grid-column: span 3;
+        }
+
+        .card-large {
+            grid-column: span 8;
+        }
+
+        .card-medium {
+            grid-column: span 4;
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Gamification Styles */
+        .badges-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .badge-item {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #f0f9f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            position: relative;
+            cursor: help;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .badge-item:hover {
+            border-color: var(--color-primary);
+            background: white;
+        }
+
+        .badge-item.locked {
+            background: #eee;
+            color: #ccc;
+        }
+
+        /* Leaderboard */
+        .leaderboard-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .leaderboard-item:last-child {
+            border-bottom: none;
+        }
+
+        .rank {
+            font-weight: 700;
+            width: 30px;
+            color: #888;
+        }
+
+        .rank.top-3 {
+            color: #FFD700;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-grow: 1;
+        }
+
+        .points {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        /* Hair Tracker */
+        .tracker-timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .tracker-timeline::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #eee;
+            z-index: 0;
+        }
+
+        .timeline-point {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .point-dot {
+            width: 30px;
+            height: 30px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            color: white;
+        }
+
+        .point-dot.completed {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .point-dot.active {
+            background: white;
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.2);
+        }
+
+        .point-label {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .point-date {
+            font-size: 0.7rem;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 70px;
+                padding: 20px 10px;
+            }
+
+            .sidebar-logo span,
+            .nav-link span,
+            .user-mini-profile div {
+                display: none;
+            }
+
+            .nav-link {
+                justify-content: center;
+                padding: 15px;
+            }
+
+            .main-content {
+                margin-left: 70px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="assets/images/logo.png" alt="NFCycle">
+            <span>NFCycle</span>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-wine-bottle"></i>
+                    <span>My Bottles</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Impact</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-spa"></i>
+                    <span>Hair Journey</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-users"></i>
+                    <span>Community</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="user-mini-profile">
+            <div class="user-avatar">AD</div>
+            <div>
+                <div style="font-weight: 600; font-size: 0.9rem;">Admin User</div>
+                <div style="font-size: 0.8rem; color: #888;">Eco-Warrior</div>
+            </div>
+            <a href="login.html" style="margin-left: auto; color: #888;"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="header-bar">
+            <div class="header-title">
+                <h1>Dashboard</h1>
+                <p>Welcome back, Admin! You're doing great.</p>
+            </div>
+            <button class="btn btn-primary" onclick="requestRefill()"><i class="fas fa-plus"></i> Request
+                Refill</button>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Key Stats -->
+            <div class="card card-stats">
+                <div class="card-header">
+                    <h3 class="card-title">Loyalty Points</h3>
+                    <i class="fas fa-coins" style="color: #FFD700; font-size: 1.2rem;"></i>
+                </div>
+                <div class="stat-value">1,250</div>
+                <div class="stat-label">+150 this month</div>
+            </div>
+
+            <div class="card card-stats">
+                <div class="card-header">
+                    <h3 class="card-title">Plastic Saved</h3>
+                    <i class="fas fa-recycle" style="color: var(--color-primary); font-size: 1.2rem;"></i>
+                </div>
+                <div class="stat-value">0.8kg</div>
+                <div class="stat-label">Equiv. to 12 bottles</div>
+            </div>
+
+            <div class="card card-stats">
+                <div class="card-header">
+                    <h3 class="card-title">Next Refill</h3>
+                    <i class="fas fa-calendar-alt" style="color: #666; font-size: 1.2rem;"></i>
+                </div>
+                <div class="stat-value" style="font-size: 1.5rem; color: #444;">5 Days</div>
+                <div class="stat-label">ReGen Shampoo</div>
+            </div>
+
+            <div class="card card-stats">
+                <div class="card-header">
+                    <h3 class="card-title">Streak</h3>
+                    <i class="fas fa-fire" style="color: #FF4500; font-size: 1.2rem;"></i>
+                </div>
+                <div class="stat-value">12 Wks</div>
+                <div class="stat-label">Consistent Use</div>
+            </div>
+
+            <!-- Active Bottle & Hair Journey -->
+            <div class="card card-large">
+                <div class="card-header">
+                    <h3 class="card-title">My Hair Journey</h3>
+                    <button class="btn btn-sm btn-outline">Log Wash</button>
+                </div>
+                <div style="display: flex; gap: 30px; align-items: center;">
+                    <img src="assets/images/products/regen.jpg" alt="Current Bottle"
+                        style="width: 100px; border-radius: 10px;">
+                    <div style="flex-grow: 1;">
+                        <h4>Current Routine: Growth & Stimulation</h4>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 20px;">Using <strong>ReGen
+                                Shampoo</strong>. Focus on scalp massage.</p>
+
+                        <div class="tracker-timeline">
+                            <div class="timeline-point">
+                                <div class="point-dot completed"><i class="fas fa-check"></i></div>
+                                <div class="point-label">Wash</div>
+                                <div class="point-date">Nov 28</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="point-dot completed"><i class="fas fa-check"></i></div>
+                                <div class="point-label">Treatment</div>
+                                <div class="point-date">Nov 30</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="point-dot active"><i class="fas fa-tint"></i></div>
+                                <div class="point-label">Wash Day</div>
+                                <div class="point-date">Today</div>
+                            </div>
+                            <div class="timeline-point">
+                                <div class="point-dot"><i class="fas fa-camera"></i></div>
+                                <div class="point-label">Photo Check</div>
+                                <div class="point-date">Dec 05</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gamification / Badges -->
+            <div class="card card-medium">
+                <div class="card-header">
+                    <h3 class="card-title">Achievements</h3>
+                    <a href="#" style="font-size: 0.8rem; color: var(--color-primary);">View All</a>
+                </div>
+                <div class="badges-container">
+                    <div class="badge-item" title="Early Adopter: Joined in Beta">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="badge-item" title="Refill Champion: 10 Refills">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="badge-item" title="Plastic Free: Saved 1kg Plastic">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="badge-item locked" title="Social Butterfly: Referred 5 Friends">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div class="badge-item locked" title="Year One: 1 Year Anniversary">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impact Chart -->
+            <div class="card card-medium">
+                <div class="card-header">
+                    <h3 class="card-title">Impact Goals</h3>
+                </div>
+                <div style="height: 200px; position: relative;">
+                    <canvas id="impactChart"></canvas>
+                    <div
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary);">80%</div>
+                        <div style="font-size: 0.8rem; color: #888;">to Goal</div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 10px; font-size: 0.9rem; color: #666;">Goal: Save 1kg Plastic
+                </p>
+            </div>
+
+            <!-- Leaderboard -->
+            <div class="card card-medium">
+                <div class="card-header">
+                    <h3 class="card-title">Incheon Leaderboard</h3>
+                </div>
+                <ul class="leaderboard-list">
+                    <li class="leaderboard-item">
+                        <span class="rank top-3">1</span>
+                        <div class="user-info">
+                            <div class="user-avatar"
+                                style="width: 30px; height: 30px; font-size: 0.8rem; background: #FFD700;">SJ</div>
+                            <span>Sarah J.</span>
+                        </div>
+                        <span class="points">2,450</span>
+                    </li>
+                    <li class="leaderboard-item">
+                        <span class="rank top-3">2</span>
+                        <div class="user-info">
+                            <div class="user-avatar"
+                                style="width: 30px; height: 30px; font-size: 0.8rem; background: #C0C0C0;">MK</div>
+                            <span>Minji K.</span>
+                        </div>
+                        <span class="points">2,100</span>
+                    </li>
+                    <li class="leaderboard-item">
+                        <span class="rank top-3">3</span>
+                        <div class="user-info">
+                            <div class="user-avatar"
+                                style="width: 30px; height: 30px; font-size: 0.8rem; background: #CD7F32;">DL</div>
+                            <span>David L.</span>
+                        </div>
+                        <span class="points">1,850</span>
+                    </li>
+                    <li class="leaderboard-item" style="background: #f0f9f0; border-radius: 5px; padding: 10px 5px;">
+                        <span class="rank">12</span>
+                        <div class="user-info">
+                            <div class="user-avatar" style="width: 30px; height: 30px; font-size: 0.8rem;">AD</div>
+                            <span>You</span>
+                        </div>
+                        <span class="points">1,250</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Community Impact -->
+            <div class="card card-large">
+                <div class="card-header">
+                    <h3 class="card-title">Global Community Impact</h3>
+                </div>
+                <div style="display: flex; justify-content: space-around; text-align: center;">
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #2F4F4F;">5,430</div>
+                        <div style="color: #888;">Total Bottles Refilled</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #2F4F4F;">320kg</div>
+                        <div style="color: #888;">Plastic Diverted</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #2F4F4F;">$12k</div>
+                        <div style="color: #888;">Donated to Ocean Cleanup</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Refill Modal -->
+    <div class="modal-overlay" id="refillModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Request Refill</h2>
+                <button class="close-modal" onclick="closeRefillModal()">&times;</button>
+            </div>
+
+            <p style="margin-bottom: 20px; color: #666;">Choose your refill preference for <strong>ReGen
+                    Shampoo</strong>.</p>
+
+            <div class="refill-option selected" onclick="selectOption(this)">
+                <div class="option-radio"></div>
+                <div class="option-details">
+                    <h4>Standard Refill + Bridge Bottle</h4>
+                    <p>We'll deliver a full bottle and a travel-size bridge bottle. Swap your empty one.</p>
+                </div>
+            </div>
+
+            <div class="refill-option" onclick="selectOption(this)">
+                <div class="option-radio"></div>
+                <div class="option-details">
+                    <h4>Standard Refill Only</h4>
+                    <p>Direct swap. No bridge bottle needed.</p>
+                </div>
+            </div>
+
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 10px; margin-top: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span>Refill Cost</span>
+                    <strong>₩21,000</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span>Delivery</span>
+                    <strong style="color: var(--color-primary);">Free</strong>
+                </div>
+                <div
+                    style="display: flex; justify-content: space-between; border-top: 1px solid #eee; padding-top: 10px; margin-top: 10px;">
+                    <strong>Total</strong>
+                    <strong style="font-size: 1.2rem; color: #2F4F4F;">₩21,000</strong>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeRefillModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="confirmRefill()">Confirm Request</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Impact Chart (Doughnut)
+        const ctxImpact = document.getElementById('impactChart').getContext('2d');
+        new Chart(ctxImpact, {
+            type: 'doughnut',
+            data: {
+                labels: ['Saved', 'Remaining'],
+                datasets: [{
+                    data: [80, 20],
+                    backgroundColor: [
+                        '#2E8B57', // Primary Green
+                        '#eee'
+                    ],
+                    borderWidth: 0,
+                    cutout: '80%'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: false
+                    }
+                }
+            }
+        });
+
+        // Modal Functions
+        const modal = document.getElementById('refillModal');
+
+        function requestRefill() {
+            modal.classList.add('active');
+        }
+
+        function closeRefillModal() {
+            modal.classList.remove('active');
+        }
+
+        function selectOption(element) {
+            document.querySelectorAll('.refill-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+
+        function confirmRefill() {
+            const btn = document.querySelector('.modal-footer .btn-primary');
+            const originalText = btn.innerText;
+
+            btn.innerText = "Processing...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                closeRefillModal();
+                alert("Refill Confirmed! Your Bridge Bottle is on the way.");
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }, 1500);
+        }
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeRefillModal();
+            }
+        });
+    </script>
+</body>
+
+</html>
